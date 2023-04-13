@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+  <title>Pocket Analyst</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='dog.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h3>Analyze any Economy</h3>
+  <form action="/" method="post">
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Interest Rate</h5>
+          <p class="card-text">Enter the interest rate for your economy.</p>
+          <input type="text" name="Interest_Rate" placeholder="Interest Rate" required />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Inflation Rate</h5>
+          <p class="card-text">Enter the inflation rate for your economy.</p>
+          <input type="text" name="Inflation_Rate" placeholder="Inflation Rate" required />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">GDP Growth</h5>
+          <p class="card-text">Enter the GDP growth rate for your economy.</p>
+          <input type="text" name="GDP_Growth" placeholder="GDP Growth" required />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Unemployment Rate</h5>
+          <p class="card-text">Enter the unemployment rate for your economy.</p>
+          <input type="text" name="Unemployment_Rate" placeholder="Unemployment Rate" required />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Currency Exchange Rate</h5>
+          <p class="card-text">Enter the currency exchange rate for your economy.</p>
+          <input type="text" name="Currency_Exchange_Rate" placeholder="Currency Exchange Rate" required />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Public Debt</h5>
+          <p class="card-text">Enter the public debt for your economy.</p>
+          <input type="text" name="Public_Debt" placeholder="Public Debt" required />
+        </div>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-primary mt-3" value="Generate Prediction" />
+  </form>
+  {% if result %}
+  <div>
+    <p class="result">{{ result }}</p>
+  </div>
+  {% endif %}
+</body>
